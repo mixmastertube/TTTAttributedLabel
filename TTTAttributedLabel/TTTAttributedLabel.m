@@ -818,7 +818,7 @@ static inline CGSize CTFramesetterSuggestFrameSizeForAttributedStringWithConstra
                 }
 
                 CGFloat penOffset = (CGFloat)CTLineGetPenOffsetForFlush(truncatedLine, flushFactor, rect.size.width);
-                CGContextSetTextPosition(c, penOffset, lineOrigin.y - descent - self.font.descender);
+                CGContextSetTextPosition(c, penOffset, lineOrigin.y);
 
                 CTLineDraw(truncatedLine, c);
                 
@@ -835,12 +835,12 @@ static inline CGSize CTFramesetterSuggestFrameSizeForAttributedStringWithConstra
                 CFRelease(truncationToken);
             } else {
                 CGFloat penOffset = (CGFloat)CTLineGetPenOffsetForFlush(line, flushFactor, rect.size.width);
-                CGContextSetTextPosition(c, penOffset, lineOrigin.y - descent - self.font.descender);
+                CGContextSetTextPosition(c, penOffset, lineOrigin.y);
                 CTLineDraw(line, c);
             }
         } else {
             CGFloat penOffset = (CGFloat)CTLineGetPenOffsetForFlush(line, flushFactor, rect.size.width);
-            CGContextSetTextPosition(c, penOffset, lineOrigin.y - descent - self.font.descender);
+            CGContextSetTextPosition(c, penOffset, lineOrigin.y);
             CTLineDraw(line, c);
         }
     }
